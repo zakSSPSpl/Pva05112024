@@ -21,3 +21,10 @@ CRAETE TABLE AppliedTags(
 	FOREIGN KEY(news_id) REFERENCES News(id),
 	FOREIGN KEY(tag_id) REFERENCES Tags(id),
 )
+
+SELECT News.id, News.news_name, Tags.tag_name
+JOIN AppliedTags
+	ON News.id==AppliedTags.news_id
+JOIN Tags
+	ON Appliedtags.tag_id==Tags.Id
+GROUP BY News.id
